@@ -1239,7 +1239,7 @@
       <div class="hero-tags">
         <span class="tag-pill accent">โครงการ DM-Genomic (23 Forms · 497 Fields · Longitudinal)</span>
         <span class="tag-pill teal">สถาปัตยกรรม 1 Site = 1 Project (ไม่ใช้ DAGs)</span>
-        <span class="tag-pill">10% Cross-check + SOP-T2D-02 6 ขั้นตอน</span>
+        <span class="tag-pill">SOP-T2D-02 6 ขั้นตอน + Data Quality Rules &amp; DRW</span>
         <span class="tag-pill">คลิกที่ภาพประกอบเพื่อขยายดูรายละเอียดได้ทุกภาพ</span>
       </div>
 
@@ -1286,8 +1286,8 @@
         </div>
         <div class="kpi-card">
           <div class="kpi-label">ระบบประกันคุณภาพ</div>
-          <div class="kpi-val">Cross-check 10% + QA</div>
-          <div class="kpi-sub">สุ่มตรวจทาน 10% เทียบต้นทางควบคู่กระบวนการ 6 ขั้นตอน SOP-T2D-02 และ DRW</div>
+          <div class="kpi-val">QA 6 ขั้นตอน + DRW</div>
+          <div class="kpi-sub">กระบวนการ QA 6 ขั้นตอนตาม SOP-T2D-02 ควบคู่ Data Quality Rules และ DRW</div>
         </div>
       </div>
     </section>
@@ -1302,7 +1302,7 @@
           <li><a href="#ch-2" data-roles="all de qa">บทที่ 2: แหล่งข้อมูล 4 ประเภท, Paper CRF และรหัสข้อมูลขาด</a></li>
           <li><a href="#ch-3" data-roles="all de qa">บทที่ 3: โครงสร้าง Longitudinal, การสืบค้น และสถานะฟอร์ม</a></li>
           <li><a href="#ch-4" data-roles="all de qa">บทที่ 4: การบันทึกแบบฟอร์ม, การล็อก และฟอร์มเกิดซ้ำ 5b</a></li>
-          <li><a href="#ch-5" data-roles="all pi de qa">บทที่ 5: การประกันคุณภาพ (10% Cross-check, SOP 6 ขั้น, DRW)</a>
+          <li><a href="#ch-5" data-roles="all pi de qa">บทที่ 5: การประกันคุณภาพ (SOP 6 ขั้นตอน, Data Quality Rules, DRW)</a>
           </li>
           <li><a href="#ch-6" data-roles="all pi qa">บทที่ 6: สิทธิ์ 3 บทบาท, Logging และรายงานส่งออกข้อมูล</a></li>
           <li><a href="#ch-7" data-roles="all pi de qa">บทที่ 7: ข้อคลาดเคลื่อนที่พบบ่อย 8 ประการ และสรุปตามบทบาท</a>
@@ -1490,7 +1490,7 @@
                   <td>
                     • ผลตรวจทางห้องปฏิบัติการคลินิกทุกค่าต้องอ้างอิงจาก HIS/ใบรายงานผลจริง
                     และจับคู่กับ<strong>วันที่ตรวจ Lab จริง (<code>Lab Date</code>)</strong> เสมอ<br />
-                    • ใช้ประกอบการทวนสอบ <code>10% Cross-check</code> ร่วมกับเอกสารเวชระเบียน
+                    • ใช้เป็นเอกสารต้นทาง (<code>Source Data</code>) สำหรับทวนสอบความถูกต้องและตอบข้อสงสัยใน <code>DRW</code> ร่วมกับเอกสารเวชระเบียน
                   </td>
                 </tr>
                 <tr>
@@ -1706,8 +1706,8 @@
                   <td><span class="dot" style="background: var(--st-yellow);"></span> <strong>Unverified
                       (สีเหลือง)</strong></td>
                   <td>ผู้บันทึกข้อมูลกรอกครบตาม Source Data แล้ว รอการทวนสอบ</td>
-                  <td><strong>สถานะมาตรฐานที่ Data Entry ต้องส่งมอบ</strong> เพื่อให้ผ่าน 10% Cross-check และทีม QA
-                    ตรวจสอบ</td>
+                  <td><strong>สถานะมาตรฐานที่ Data Entry ต้องส่งมอบ</strong> เพื่อให้ทีม QA
+                    ตรวจสอบผ่าน <code>Data Quality Rules</code> และ <code>DRW</code></td>
                 </tr>
                 <tr>
                   <td><span class="dot" style="background: var(--st-green);"></span> <strong>Complete (สีเขียว)</strong>
@@ -1870,8 +1870,8 @@
           <header class="chapter-head">
             <div>
               <div class="chapter-kicker">Chapter 05 · Quality Assurance &amp; DRW</div>
-              <h2><span class="sec-slash">/</span> บทที่ 5: ระบบประกันคุณภาพข้อมูล (10% Cross-check, SOP-T2D-02 6
-                ขั้นตอน, Data Quality Rules และ DRW)</h2>
+              <h2><span class="sec-slash">/</span> บทที่ 5: ระบบประกันคุณภาพข้อมูล (กระบวนการ QA 6 ขั้นตอนประจำสถาบัน,
+                Data Quality Rules และ DRW)</h2>
             </div>
             <div class="chapter-roles">
               <span class="role-pill">Site PI</span>
@@ -1881,38 +1881,25 @@
           </header>
 
           <p>
-            มาตรฐานการควบคุมคุณภาพของโครงการ DHARA ดำเนินการโดยประสาน<strong>กลไกหลัก 2 ส่วน</strong>
-            ควบคู่กันอย่างเป็นระบบ เพื่อสร้างหลักประกันความถูกต้องและตรวจสอบย้อนกลับได้ทั้งระดับบุคคลและระดับสถาบัน:
+            มาตรฐานการควบคุมคุณภาพของโครงการ DHARA ดำเนินการผ่าน<strong>กระบวนการ QA 6 ขั้นตอนประจำสถาบัน</strong>
+            ควบคู่กับการประมวลผล <code>Data Quality Rules</code> และระบบจัดการข้อสงสัย <code>Data Resolution Workflow (DRW)</code>
+            อย่างเป็นระบบ เพื่อสร้างหลักประกันความถูกต้องและตรวจสอบย้อนกลับได้ในระดับสถาบัน:
           </p>
 
-          <div class="grid-2">
-            <div class="mini-card">
-              <h4>1. การสุ่มตรวจทานข้ามบุคคลร้อยละ 10 (T2DM-IM-01-V1 ส่วนที่ 6)</h4>
-              <ul class="list-clean">
-                <li><strong>เกณฑ์การสุ่ม:</strong> สุ่มคัดเลือกเรคคอร์ดจำนวน<strong>ร้อยละ 10 ของข้อมูลที่บันทึก
-                    (หากมีเศษให้ปัดขึ้น)</strong> โดยต้องบันทึกหลักฐานวิธีการสุ่มให้ตรวจสอบย้อนกลับได้</li>
-                <li><strong>การตรวจไขว้ระหว่างผู้บันทึก:</strong> ผู้บันทึกข้อมูลคนที่ 1 ตรวจทานข้อมูลที่บันทึกโดยคนที่
-                  2 และผู้บันทึกคนที่ 2 ตรวจทานข้อมูลของคนที่ 1 เทียบกับเอกสารต้นทาง (<code>Source Data</code>)</li>
-                <li><strong>การบันทึกผล:</strong> หากพบข้อคลาดเคลื่อน ให้บันทึกประเด็นที่พบในช่อง <code>Comments</code>
-                  และแบบสรุปผล Cross-check พร้อมแก้ไขให้ถูกต้องตามต้นทาง</li>
-              </ul>
-            </div>
-
-            <div class="mini-card">
-              <h4>2. กระบวนการ QA 6 ขั้นตอนประจำสถาบัน (SOP-T2D-02 ส่วนที่ 9–10)</h4>
-              <ol class="list-clean">
-                <li><code>Site PI</code> แต่งตั้งเจ้าหน้าที่ <code>QA Personnel</code> และกำหนดสิทธิ์
-                  <code>User Rights</code> ตาม 3 บทบาท</li>
-                <li><code>QA Personnel</code> ประมวลผลกฎ <code>Data Quality Rules</code> (ทั้งกฎมาตรฐาน A–I และ Custom
-                  Rules 22 ข้อ)</li>
-                <li><code>QA</code> ทบทวนผลลัพธ์ตามบริบทคลินิก (<strong>Rule flags เป็นเพียงสัญญาณคัดกรอง
-                    ไม่ใช่ข้อผิดพลาดโดยอัตโนมัติ</strong>) และเปิดข้อสงสัยผ่าน <code>DRW</code></li>
-                <li><code>QA</code> วิเคราะห์แนวโน้มข้อคลาดเคลื่อนรายแบบฟอร์มและจัดทำรายงานเสนอ <code>Site PI</code>
-                </li>
-                <li><code>Site PI</code> วางแผนปรับปรุงกระบวนการทำงานหรือซักซ้อมทีมงานเพื่อลดสาเหตุที่ต้นทาง</li>
-                <li><code>QA</code> ติดตามประเมินผลซ้ำในรอบการตรวจถัดไปอย่างต่อเนื่อง</li>
-              </ol>
-            </div>
+          <div class="mini-card" style="margin: 14px 0;">
+            <h4>กระบวนการ QA 6 ขั้นตอนประจำสถาบัน (SOP-T2D-02 ส่วนที่ 9–10)</h4>
+            <ol class="list-clean" style="margin-bottom: 0;">
+              <li><code>Site PI</code> แต่งตั้งเจ้าหน้าที่ <code>QA Personnel</code> และกำหนดสิทธิ์
+                <code>User Rights</code> ตาม 3 บทบาท</li>
+              <li><code>QA Personnel</code> ประมวลผลกฎ <code>Data Quality Rules</code> (ทั้งกฎมาตรฐาน A–I และ Custom
+                Rules 22 ข้อ)</li>
+              <li><code>QA</code> ทบทวนผลลัพธ์ตามบริบทคลินิก (<strong>Rule flags เป็นเพียงสัญญาณคัดกรอง
+                  ไม่ใช่ข้อผิดพลาดโดยอัตโนมัติ</strong>) และเปิดข้อสงสัยผ่าน <code>DRW</code></li>
+              <li><code>QA</code> วิเคราะห์แนวโน้มข้อคลาดเคลื่อนรายแบบฟอร์มและจัดทำรายงานเสนอ <code>Site PI</code>
+              </li>
+              <li><code>Site PI</code> วางแผนปรับปรุงกระบวนการทำงานหรือซักซ้อมทีมงานเพื่อลดสาเหตุที่ต้นทาง</li>
+              <li style="margin-bottom: 0;"><code>QA</code> ติดตามประเมินผลซ้ำในรอบการตรวจถัดไปอย่างต่อเนื่อง</li>
+            </ol>
           </div>
 
           <h3 class="subhead">5.1 กฎตรวจสอบคุณภาพข้อมูลอัตโนมัติ (Data Quality Rules A–I และ Custom Rules)</h3>
@@ -2297,8 +2284,7 @@
                 <li>ปฏิบัติตามเกณฑ์วัดสัดส่วน (1 ตำแหน่งทศนิยม), <code>IPAQ</code>, ญาติสายตรงลำดับ 1 และรหัสข้อมูลขาด
                   (<code>999999</code>)</li>
                 <li>บันทึกข้อมูลครบแล้วตั้งสถานะเป็น <span class="dot"
-                    style="background: var(--st-yellow);"></span><code>Unverified</code> เพื่อรับการ
-                  <code>10% Cross-check</code></li>
+                    style="background: var(--st-yellow);"></span><code>Unverified</code> เพื่อส่งต่อให้ทีม QA ตรวจสอบ</li>
                 <li>ตอบกลับข้อสงสัยใน <code>DRW</code> พร้อมแก้ไขค่าตามเอกสารต้นทางทุกครั้ง</li>
               </ul>
             </div>
@@ -2306,7 +2292,7 @@
             <div class="mini-card">
               <h4>QA Personnel (ผู้ประกันคุณภาพ)</h4>
               <ul class="list-clean">
-                <li>กำกับการสุ่มตรวจทาน <code>10% Random Cross-check</code> (เศษปัดขึ้น, สลับผู้บันทึกคู่ขนาน)</li>
+                <li>ดำเนินกระบวนการ QA 6 ขั้นตอนประจำสถาบันตาม <code>SOP-T2D-02</code> (ส่วนที่ 9–10)</li>
                 <li>ประมวลผล <code>Data Quality Rules A–I</code> (เข้าใจ <code>Rule E</code> และ <code>Rule F</code>)
                   และ <code>Custom Rules</code> 22 ข้อ</li>
                 <li>ทบทวนผล Flag ตามบริบทจริง เปิด <code>Open query</code> → ตรวจคำตอบ → <code>Close query</code></li>
@@ -2413,15 +2399,14 @@
 
             <!-- Q5 -->
             <div class="quiz-item" data-ans="c"
-              data-exp="ถูกต้อง: T2DM-IM-01-V1 ส่วนที่ 6 กำหนดให้สุ่มตรวจทานข้ามบุคคลร้อยละ 10 (เศษปัดขึ้น) เทียบเอกสารต้นทาง ควบคู่กับกระบวนการ QA 6 ขั้นตอนของ SOP-T2D-02 โดย Rule flags เป็นเพียงสัญญาณคัดกรองที่ต้องทบทวนบริบทคลินิกก่อนตัดสินว่าเป็น Error">
-              <p class="quiz-q">5. กลไกควบคุมคุณภาพข้อมูลตาม T2DM-IM-01-V1 และ SOP-T2D-02 ทำงานร่วมกันอย่างไร</p>
+              data-exp="ถูกต้อง: กระบวนการ QA 6 ขั้นตอนตาม SOP-T2D-02 กำหนดให้ทีม QA ประมวลผล Data Quality Rules (A–I และ Custom Rules 22 ข้อ) โดยถือว่า Rule flags เป็นเพียงสัญญาณคัดกรองที่ต้องทบทวนตามบริบทคลินิกก่อนเปิดข้อสงสัยผ่าน DRW และสรุปแนวโน้มเสนอ Site PI">
+              <p class="quiz-q">5. กระบวนการประกันคุณภาพข้อมูล 6 ขั้นตอนประจำสถาบันตาม SOP-T2D-02 กำหนดแนวทางจัดการผลลัพธ์จาก Data Quality Rules และ DRW อย่างไร</p>
               <div class="quiz-opts">
                 <label class="quiz-opt"><input type="radio" name="q5" value="a" /> เมื่อระบบแจ้ง Flag จาก Data Quality
                   Rules ให้ถือว่าเป็น Error และลบทิ้งทันทีโดยไม่ต้องเทียบเวชระเบียน</label>
                 <label class="quiz-opt"><input type="radio" name="q5" value="b" />
-                  ผู้บันทึกข้อมูลคนเดิมตรวจสอบข้อมูลของตนเองร้อยละ 5 โดยไม่ต้องบันทึกหลักฐานการสุ่ม</label>
-                <label class="quiz-opt"><input type="radio" name="q5" value="c" /> สุ่มทวนสอบข้ามบุคคลร้อยละ 10
-                  (เศษปัดขึ้น) เทียบ Source Data ควบคู่กับกระบวนการ QA 6 ขั้นตอนและทบทวน Flag ตามบริบทจริง</label>
+                  ผู้บันทึกข้อมูลสามารถกดปิดข้อสงสัย (Close query) ใน DRW ได้เองทันทีโดยไม่ต้องผ่านการทวนสอบจาก QA Personnel</label>
+                <label class="quiz-opt"><input type="radio" name="q5" value="c" /> ใช้ Rule flags เป็นสัญญาณคัดกรองเพื่อทบทวนตามบริบทคลินิก เปิดข้อสงสัยผ่าน DRW ให้แก้ไขตาม Source Data และสรุปแนวโน้มเสนอ Site PI</label>
               </div>
               <div class="quiz-feedback"></div>
             </div>
@@ -2437,7 +2422,7 @@
                 <label class="quiz-opt"><input type="radio" name="q6" value="b" />
                   ทันทีที่ผู้บันทึกกรอกข้อมูลหน้าแรกเสร็จแม้ยังรอผล Lab จาก HIS</label>
                 <label class="quiz-opt"><input type="radio" name="q6" value="c" /> ก่อนการรัน Data Quality Rules
-                  และก่อนทำ 10% Cross-check เพื่อป้องกันการแก้ไขภายหลัง</label>
+                  และก่อนการตรวจสอบของทีม QA เพื่อป้องกันการแก้ไขภายหลัง</label>
               </div>
               <div class="quiz-feedback"></div>
             </div>
