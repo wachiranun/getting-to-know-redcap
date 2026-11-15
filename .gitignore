@@ -1,0 +1,9 @@
+# Ignore everything in this folder by default to protect draft documents and lesson plans
+/*
+
+# Only track files for the published Participant Handbook
+!.gitignore
+!.nojekyll
+!README.md
+!index.html
+!02_เอกสารประกอบการสอน_Getting_to_know_REDCap.html
